@@ -1,8 +1,13 @@
 package com.bridgelabz;
 
+/***
+ * 
+ * @author Admin
+ *
+ */
 public class LinkedList {
 	Node head;
-	
+
 	class Node {
 		Object data;
 		Node ref;
@@ -11,7 +16,12 @@ public class LinkedList {
 			this.data = data;
 		}
 	}
-	
+
+	public void addFirstNode(Object data) {
+		Node newNode = new Node(data);
+		newNode.ref = head;
+		head = newNode;
+	}
 
 	public void addLast(Object data) {
 		Node newNode = new Node(data);
@@ -27,26 +37,23 @@ public class LinkedList {
 			temp.ref = newNode;
 		}
 	}
-	public void deleteFirst()
-	{
+
+	public void deleteFirst() {
 		head = head.ref;
 	}
-	/*
-	 *Method for displaying the added elements
-	 */
-	public void print() {
-		if (head==null) {
+
+	public void display() {
+		if (head == null) {
 			System.out.println("List is empty");
 		}
-			
-			Node temp=head;
-			while(temp != null) {
-				if(temp.ref != null)
-					System.out.print(temp.data+"=>");
-				else
-					System.out.println(temp.data);
-			   temp =temp.ref;
+
+		Node temp = head;
+		while (temp != null) {
+			if (temp.ref != null)
+				System.out.print(temp.data + "=>");
+			else
+				System.out.println(temp.data);
+			temp = temp.ref;
 		}
 	}
 }
-
